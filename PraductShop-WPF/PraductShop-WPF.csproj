@@ -9,11 +9,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\add-to-basket.png" />
+    <None Remove="Images\add.png" />
+    <None Remove="Images\KisiEynek.png" />
+    <None Remove="Images\kisiEynekQehveyi.png" />
+    <None Remove="Images\KisiEynekQizili.png" />
+    <None Remove="Images\KisiEynekrayban.png" />
     <None Remove="Images\shop.png" />
+    <None Remove="Images\shoping.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\add-to-basket.png" />
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\KisiEynekrayban.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\KisiEynek.png" />
+    <Resource Include="Images\kisiEynekQehveyi.png" />
+    <Resource Include="Images\KisiEynekQizili.png" />
     <Resource Include="Images\shop.png" />
+    <Resource Include="Images\shoping.png" />
   </ItemGroup>
 
 </Project>

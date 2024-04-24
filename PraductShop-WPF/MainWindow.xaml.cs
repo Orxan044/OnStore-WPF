@@ -1,28 +1,54 @@
-﻿using System;
+﻿using PraductShop_WPF.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Text.Json;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+namespace PraductShop_WPF;
 
-namespace PraductShop_WPF
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public ObservableCollection<Product> Praducts { get; set; }
+    public ObservableCollection<Product> SelectedProducts { get; set; }
+
+    string? fileName = "AllProduct.json";
+    public MainWindow()
     {
-        public MainWindow()
+        Praducts = new()
         {
-            InitializeComponent();
-        }
+            new Product {Name="Kişi Eynək Gümüş" , Price = 38 , Image="Images/KisiEynek.png" }
+        };
+
+        //try
+        //{
+        //    if (File.Exists(fileName))
+        //    {
+        //        var read = File.ReadAllText(fileName);
+        //        var jsonProduct = JsonSerializer.Deserialize<ObservableCollection<Product>>(read);
+        //        foreach (var item in jsonProduct)
+        //            Praducts.Add(item);
+        //    }
+        //}
+        //catch (System.Exception)
+        //{
+        //    MessageBox.Show("File Eror");
+
+        //}
+        InitializeComponent();
+        DataContext = this;
+    }
+
+    private void AddShoping_click(object sender, RoutedEventArgs e)
+    {
+        
+        
+    }
+
+    private void AddProduct_Click(object sender, RoutedEventArgs e)
+    {
+        //Close();
+        AddPraduct addPraductWindow = new();
+        addPraductWindow.ShowDialog();
+        //Show();
     }
 }
