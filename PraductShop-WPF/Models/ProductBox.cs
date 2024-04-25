@@ -23,6 +23,13 @@ public class ProductBox : INotifyPropertyChanged
         set { total = value; OnPropertyRaised(); }
     }
 
+    public ProductBox(Product product)
+    {
+        Product = product;
+        Count = 1;
+        Total = Total;
+    }
+
 
     public event PropertyChangedEventHandler? PropertyChanged;
 

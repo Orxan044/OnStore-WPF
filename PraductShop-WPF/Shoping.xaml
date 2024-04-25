@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <TextBlock VerticalAlignment="Center" FontSize="45" Padding="70,0,0,0" Foreground="Red"  Height="61">My Shoping</TextBlock>
 
-        <ListBox ItemsSource="{Binding SelectProducts}" Grid.Row="1" Background="#F1FAEE">
+        <ListBox ItemsSource="{Binding SelectedItems}" Grid.Row="1" Background="#F1FAEE">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" Height="auto" Width="730"  />

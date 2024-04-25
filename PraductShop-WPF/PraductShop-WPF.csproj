@@ -17,6 +17,7 @@
     <None Remove="Images\KisiEynekrayban.png" />
     <None Remove="Images\shop.png" />
     <None Remove="Images\shoping.png" />
+    <None Remove="Images\trash.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +32,7 @@
     <Resource Include="Images\KisiEynekQizili.png" />
     <Resource Include="Images\shop.png" />
     <Resource Include="Images\shoping.png" />
+    <Resource Include="Images\trash.png" />
   </ItemGroup>
 
 </Project>

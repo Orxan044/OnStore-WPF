@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace PraductShop_WPF;
@@ -42,5 +43,9 @@ public partial class AddPraduct : Window
             Image = openFileDialog.FileName
         };
         ((MainWindow)Application.Current.MainWindow).Praducts.Add(_product);
+        MessageBox.Show($"{txtBoxName.Name} Add Praduct !!!");
+        txtBoxName.Text = null;
+        imageControl.Source = null;
+        txtBoxPrice.Text = null;
     }
 }
