@@ -23,7 +23,7 @@ public partial class AddPraduct : Window
 
     private void ImageShow_Click(object sender, RoutedEventArgs e)
     {
-        openFileDialog.Filter = "Image files (*.png;*.jpg)|*.png;*.jpg|All files (*.*)|*.*";
+        openFileDialog.Filter = "Image files (*.png;*.jpg)|*.png;*.jpg";
         openFileDialog.FilterIndex = 2;
         if (openFileDialog.ShowDialog() == true)
         {

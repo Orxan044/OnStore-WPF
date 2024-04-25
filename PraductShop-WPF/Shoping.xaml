@@ -4,26 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PraductShop_WPF"
-        mc:Ignorable="d"
-        Title="Shoping" Height="450" Width="400">
+        mc:Ignorable="d" Icon="Images/shoping.png" WindowStartupLocation="CenterScreen"
+        Title="Shoping" Height="469" Width="400" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
             <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" VerticalAlignment="Top" FontSize="45" Padding="70,3" Foreground="Red"  Height="70">My Shoping</TextBlock>
-        <ListBox Grid.Row="1" Background="#F1FAEE" Grid.Column="2" ItemsSource="{Binding Praducts}" Name="listboxShop">
+        <TextBlock VerticalAlignment="Center" FontSize="45" Padding="70,0,0,0" Foreground="Red"  Height="61">My Shoping</TextBlock>
+
+        <ListBox ItemsSource="{Binding SelectProducts}" Grid.Row="1" Background="#F1FAEE">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" Height="auto" Width="730"  />
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
 
-
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border Margin="10" Background="#F1FAEE"  CornerRadius="10" BorderBrush="Blue" Width="210" Height="210">
-                        <Grid >
+                        <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="8*" ></RowDefinition>
                                 <RowDefinition Height="*" ></RowDefinition>
@@ -39,13 +40,28 @@
                                     </MultiBinding>
                                 </TextBlock.Text>
                             </TextBlock>
+
                             <Button Background="Red" Height="20" Width="25" Grid.Row="2" Margin="180,0,0,0" >
-                                <Image Source="Images/add.png" ></Image>
+                                <Image Source="Images/trash.png" ></Image>
                             </Button>
+
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <TextBlock FontFamily="Bold" FontSize="15" Foreground="#457B9D" Grid.Row="1" Margin="0,323,0,36" Grid.RowSpan="2">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="Total: {0} AZN">
+                    <Binding Path="Total"/>
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        <Button   Grid.Row="2" FontSize="17" Background="Green" Margin="23,31,204,4"  >Buy Praducts</Button>
+        <Button   Grid.Row="2" FontSize="17" Background="Red" Margin="212,31,23,4"  >Clear All</Button>
+        
+
+
     </Grid>
 </Window>

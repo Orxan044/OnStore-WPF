@@ -16,24 +16,10 @@ public partial class MainWindow : Window
     {
         Praducts = new()
         {
-            new Product {Name="Kişi Eynək Gümüş" , Price = 38 , Image="Images/KisiEynek.png" }
+            new Product {Name="Kişi Eynək Gümüş" , Price = 38 , Image="Images/KisiEynek.png" },
+            new Product {Name="Kişi Eynək Qizili" , Price = 38 , Image="Images/KisiEynekQizili.png" },
+            new Product {Name="Kişi Eynək Ray-Ban" , Price = 38 , Image="Images/KisiEynekrayban.png" }
         };
-
-        //try
-        //{
-        //    if (File.Exists(fileName))
-        //    {
-        //        var read = File.ReadAllText(fileName);
-        //        var jsonProduct = JsonSerializer.Deserialize<ObservableCollection<Product>>(read);
-        //        foreach (var item in jsonProduct)
-        //            Praducts.Add(item);
-        //    }
-        //}
-        //catch (System.Exception)
-        //{
-        //    MessageBox.Show("File Eror");
-
-        //}
         InitializeComponent();
         DataContext = this;
     }
@@ -44,11 +30,19 @@ public partial class MainWindow : Window
         
     }
 
+    private void Basket_Click(object sender, RoutedEventArgs e)
+    {
+        Shoping shoping = new();
+        Hide();
+        shoping.ShowDialog();
+        Show();
+    }
+
     private void AddProduct_Click(object sender, RoutedEventArgs e)
     {
-        //Close();
         AddPraduct addPraductWindow = new();
+        Hide();
         addPraductWindow.ShowDialog();
-        //Show();
+        Show();
     }
 }

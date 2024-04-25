@@ -13,9 +13,8 @@
             <ColumnDefinition Width="14*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-
         <StackPanel Background="#1D3557" Grid.Column="0">
-            <Button Height="45" Background="Transparent" Margin="1">
+            <Button Height="45" Background="Transparent" Margin="1" Click="Basket_Click">
                 <Image Source="Images/shoping.png"></Image>
             </Button>
             <Button Height="45" Background="Transparent" Margin="1" Click="AddProduct_Click">
@@ -23,13 +22,15 @@
             </Button>
         </StackPanel>
 
-        <ListBox Background="#F1FAEE" Grid.Column="2" ItemsSource="{Binding Praducts}" Name="listboxShop">
+        <TextBox Grid.Column="1" Height="25" VerticalAlignment="Top" Margin="2,1,0,0" />
+        
+        <ListBox Background="#F1FAEE" ItemsSource="{Binding Praducts}" Name="listboxShop" Grid.ColumnSpan="2" Margin="53,26,0,0">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" Height="auto" Width="730"  />
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
-            
+
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -50,7 +51,7 @@
                                     </MultiBinding>
                                 </TextBlock.Text>
                             </TextBlock>
-                            <Button Background="Red" Height="20" Width="25" Grid.Row="2" Margin="180,0,0,0" >
+                            <Button x:Name="BtnAddProduct" Background="Red" Height="20" Width="25" Grid.Row="2" Margin="180,0,0,0" >
                                 <Image Source="Images/add.png" ></Image>
                             </Button>
                         </Grid>
