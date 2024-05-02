@@ -30,27 +30,12 @@ public class Product : INotifyPropertyChanged
     }
 
 
+    //---------------------------------------------------------------------------------------------
     public event PropertyChangedEventHandler? PropertyChanged;
 
     private void OnPropertyRaised([CallerMemberName] string? name = null)
     {
         if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(name));
     }
-    public Product(Product product)
-    {
-        Name = product.Name;
-        Price = product.Price;
-        Image = product.Image;
-    }
-
-    public Product()
-    {
-    }
-
-    public Product(string image, string? name, double price)
-    {
-        Image = image;
-        Name = name;
-        Price = price;
-    }
+    //---------------------------------------------------------------------------------------------
 }

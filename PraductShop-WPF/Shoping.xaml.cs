@@ -4,13 +4,43 @@ using PraductShop_WPF.Models;
 namespace PraductShop_WPF;
 public partial class Shoping : Window
 {
-    public ObservableCollection<Product> SelectedItems { get; set; }
-    public Shoping(ObservableCollection<Product> ShopList)
+    public ObservableCollection<Basket> Basket { get; set; }
+
+    public Shoping(ObservableCollection<Basket> Basket)
     {
         InitializeComponent();
-        SelectedItems = ShopList;
+        this.Basket = Basket;
         DataContext = this;
     }
+
+    private void BuyProducts_Clik(object sender , RoutedEventArgs e)
+    {
+        double TotalPrice = 0;
+
+        foreach (var item in Basket)        
+            TotalPrice += item.Product!.Price;
+
+        if (TotalPrice != 0)
+        {
+
+            MessageBoxResult result = MessageBox.Show($"Buy Products Total = {TotalPrice} ??", "Buy Products", MessageBoxButton.YesNo);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                MessageBox.Show("Good luck !");
+                ((MainWindow)Application.Current.MainWindow).BasketShop = new();
+            }
+            Close();
+        }
+        else  MessageBox.Show("Null Basket !!!");
+    }
+
+    private void ClearProducts_Click(object sender , RoutedEventArgs e)
+    {
+        ((MainWindow)Application.Current.MainWindow).BasketShop = new();
+        Close();
+    }
+
 
 
 

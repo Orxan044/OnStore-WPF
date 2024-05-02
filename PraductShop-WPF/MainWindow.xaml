@@ -14,17 +14,21 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Background="#1D3557" Grid.Column="0">
-            <Button Height="45" Background="Transparent" Margin="1" Click="Basket_Click">
+            <Button Height="45" Margin="1" Click="Basket_Click">
                 <Image Source="Images/shoping.png"></Image>
             </Button>
-            <Button Height="45" Background="Transparent" Margin="1" Click="AddProduct_Click">
+            <Button Height="45" Margin="1" Click="AddPraduct_Click">
                 <Image Source="Images/add-to-basket.png"></Image>
             </Button>
         </StackPanel>
 
-        <TextBox x:Name="txtBoxSearch" Grid.Column="1" Height="25" VerticalAlignment="Top" Margin="2,1,0,0" TextChanged="TextBoxSearch_TextChanged"  />
-        
-        <ListBox Background="#F1FAEE" ItemsSource="{Binding Praducts}" Name="listboxShop" Grid.ColumnSpan="2" Margin="53,26,0,0">
+        <TextBox x:Name="txtBoxSearch" Text=" " Grid.Column="1" Height="30" VerticalAlignment="Top" TextChanged="txtBoxSearch_TextChanged"/>
+
+        <ListBox ItemsSource="{Binding PraductsSearch , UpdateSourceTrigger=PropertyChanged}" 
+                 Name="listboxShop" Grid.ColumnSpan="2"
+                 Margin="53,34,0,0"
+                 MouseDoubleClick="listboxShop_MouseDoubleClick">
+
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" Height="auto" Width="730"  />
@@ -34,31 +38,29 @@
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border Margin="10" Background="#F1FAEE"  CornerRadius="10" BorderBrush="Blue" Width="210" Height="210">
-                        <Grid >
+                    <Border Margin="5" Width="210" Height="210">
+                        <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="8*" ></RowDefinition>
                                 <RowDefinition Height="*" ></RowDefinition>
                                 <RowDefinition Height="*" ></RowDefinition>
                             </Grid.RowDefinitions>
 
-                            <Image Grid.Row="0" Source="{Binding Image}" Margin="5"></Image>
-                            <TextBlock FontFamily="Bold" FontSize="15" Foreground="Red" Grid.Row="1" Text="{Binding Name}"></TextBlock>
+                            <Image Grid.Row="0" Source="{Binding Image , UpdateSourceTrigger=PropertyChanged}" Margin="5"></Image>
+                            <TextBlock FontFamily="Bold" FontSize="15"  Grid.Row="1" Text="{Binding Name , UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                             <TextBlock FontFamily="Bold" FontSize="15" Foreground="#457B9D" Grid.Row="2">
                                 <TextBlock.Text>
                                     <MultiBinding StringFormat=" {0} AZN">
-                                        <Binding Path="Price"/>
+                                        <Binding Path="Price" UpdateSourceTrigger="PropertyChanged"/>
                                     </MultiBinding>
                                 </TextBlock.Text>
                             </TextBlock>
-                            <Button x:Name="BtnAddProduct" Background="Red" Height="20" Width="25" Grid.Row="2" Margin="180,0,0,0" Click="AddShoping_click" >
-                                <Image Source="Images/add.png" ></Image>
+                            <Button Background="Transparent"  x:Name="BtnAddProduct" Height="20" Width="25" Grid.Row="2" Margin="180,0,0,0" Click="AddBasket_Click">
                             </Button>
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-
     </Grid>
 </Window>

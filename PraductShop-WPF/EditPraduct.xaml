@@ -1,0 +1,20 @@
+﻿<Window x:Class="PraductShop_WPF.EditPraduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PraductShop_WPF"
+        mc:Ignorable="d" Icon="Images/edit.png"
+        Title="EditPraduct" Height="470" Width="350"  FontSize="18"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <StackPanel>
+        <Image x:Name="ImageBox" Source="{Binding OrginalProduct.Image}"  Height="200"></Image>
+        <Button Click="ImageShow_Click" >Change Praduct Image</Button>
+        <TextBlock Margin="5"  Height="30" >Name</TextBlock>
+        <TextBox Text="{Binding OrginalProduct.Name}" x:Name="txtBoxName"></TextBox>
+        <TextBlock Margin="5"  Height="30" >Price</TextBlock>
+        <TextBox Text="{Binding OrginalProduct.Price}" x:Name="txtBoxPrice"></TextBox>
+        <Button Click="ChangePraduct_Clik" Margin="10">Save Praduct</Button>
+    </StackPanel>
+</Window>

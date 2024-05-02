@@ -4,63 +4,41 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PraductShop_WPF"
+        
         mc:Ignorable="d" Icon="Images/shoping.png" WindowStartupLocation="CenterScreen"
-        Title="Shoping" Height="469" Width="400" ResizeMode="NoResize">
+        Title="Shoping" Height="469" Width="480" ResizeMode="NoResize" FontSize="18">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" ></RowDefinition>
             <RowDefinition Height="5*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock VerticalAlignment="Center" FontSize="45" Padding="70,0,0,0" Foreground="Red"  Height="61">My Shoping</TextBlock>
 
-        <ListBox ItemsSource="{Binding SelectedItems}" Grid.Row="1" Background="#F1FAEE">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" Height="auto" Width="730"  />
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
+        <Button Grid.Row="0" Content="My Shopping" Height="60" FontSize="25" Visibility="Visible"/>
 
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Border Margin="10" Background="#F1FAEE"  CornerRadius="10" BorderBrush="Blue" Width="210" Height="210">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="8*" ></RowDefinition>
-                                <RowDefinition Height="*" ></RowDefinition>
-                                <RowDefinition Height="*" ></RowDefinition>
-                            </Grid.RowDefinitions>
+        <ListView x:Name="listShoping" Grid.Row="1" ItemsSource="{Binding Basket}">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Image">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding Product.Image , UpdateSourceTrigger=PropertyChanged}" Width="100" Height="100" Margin="10"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                            <Image Grid.Row="0" Source="{Binding Image}" Margin="5"></Image>
-                            <TextBlock FontFamily="Bold" FontSize="15" Foreground="Red" Grid.Row="1" Text="{Binding Name}"></TextBlock>
-                            <TextBlock FontFamily="Bold" FontSize="15" Foreground="#457B9D" Grid.Row="2">
-                                <TextBlock.Text>
-                                    <MultiBinding StringFormat=" {0} AZN">
-                                        <Binding Path="Price"/>
-                                    </MultiBinding>
-                                </TextBlock.Text>
-                            </TextBlock>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Product.Name, UpdateSourceTrigger=PropertyChanged}"></GridViewColumn>
+                        <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Product.Price, UpdateSourceTrigger=PropertyChanged}"></GridViewColumn>
+                        <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}"></GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
-                            <Button Background="Red" Height="20" Width="25" Grid.Row="2" Margin="180,0,0,0" >
-                                <Image Source="Images/trash.png" ></Image>
-                            </Button>
+        <Button Grid.Row="2" Height="40" HorizontalAlignment="Left" Width="200" Click="BuyProducts_Clik">Buy Praduct's</Button>
+        <Button Grid.Row="2" Height="40" HorizontalAlignment="Right" Width="200" Click="ClearProducts_Click">Clear Praduct's</Button>
 
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-
-        <TextBlock FontFamily="Bold" FontSize="15" Foreground="#457B9D" Grid.Row="1" Margin="0,323,0,36" Grid.RowSpan="2">
-            <TextBlock.Text>
-                <MultiBinding StringFormat="Total: {0} AZN">
-                    <Binding Path="Total"/>
-                </MultiBinding>
-            </TextBlock.Text>
-        </TextBlock>
-        <Button   Grid.Row="2" FontSize="17" Background="Green" Margin="23,31,204,4"  >Buy Praducts</Button>
-        <Button   Grid.Row="2" FontSize="17" Background="Red" Margin="212,31,23,4"  >Clear All</Button>
-        
 
 
     </Grid>

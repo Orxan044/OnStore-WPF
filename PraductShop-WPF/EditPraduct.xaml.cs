@@ -1,27 +1,26 @@
 ﻿using Microsoft.Win32;
 using PraductShop_WPF.Models;
 using System;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Text.Json;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace PraductShop_WPF;
 
-public partial class AddPraduct : Window
+public partial class EditPraduct : Window
 {
     OpenFileDialog openFileDialog = new OpenFileDialog();
-    private Product _product;
 
-    public AddPraduct()
+    public Product OrginalProduct { get; set; }
+    
+    private Product? _praduct { get; set; }
+
+    public EditPraduct(Product praduct)
     {
         InitializeComponent();
+        OrginalProduct = praduct;
         DataContext = this;
+        
     }
-
 
     private void ImageShow_Click(object sender, RoutedEventArgs e)
     {
@@ -35,21 +34,19 @@ public partial class AddPraduct : Window
         }
     }
 
-    private void AddPraduct_Click(object sender, RoutedEventArgs e)
+    private void ChangePraduct_Clik(object sender, RoutedEventArgs e)
     {
         if (ImageBox is not null && txtBoxName is not null && double.TryParse(txtBoxPrice.Text, out double result))
         {
-            _product = new()
+            _praduct = new()
             {
                 Name = txtBoxName.Text,
                 Price = result,
                 Image = openFileDialog.FileName
             };
-            ((MainWindow)Application.Current.MainWindow).Praducts.Add(_product);
-            MessageBox.Show($"{txtBoxName.Text} Add Praduct !!!");
-            txtBoxName.Text = null;
-            ImageBox.Source = null;
-            txtBoxPrice.Text = null;
+
+            OrginalProduct = _praduct;
+            MessageBox.Show($"Change Praduct !!!");
         }
         else MessageBox.Show("Please Enter Correct Information !!!");
     }
