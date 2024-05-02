@@ -22,6 +22,7 @@
             </Button>
         </StackPanel>
 
+<<<<<<< HEAD
         <TextBox x:Name="txtBoxSearch" Text=" " Grid.Column="1" Height="30" VerticalAlignment="Top" TextChanged="txtBoxSearch_TextChanged"/>
 
         <ListBox ItemsSource="{Binding PraductsSearch , UpdateSourceTrigger=PropertyChanged}" 
@@ -29,6 +30,11 @@
                  Margin="53,34,0,0"
                  MouseDoubleClick="listboxShop_MouseDoubleClick">
 
+=======
+        <TextBox x:Name="txtBoxSearch" Grid.Column="1" Height="25" VerticalAlignment="Top" Margin="2,1,0,0" TextChanged="TextBoxSearch_TextChanged"  />
+        
+        <ListBox Background="#F1FAEE" ItemsSource="{Binding Praducts}" Name="listboxShop" Grid.ColumnSpan="2" Margin="53,26,0,0" MouseDoubleClick="PraductChange_MouseDoubleClick">
+>>>>>>> a28e7851a93052bbfdc43dcc8915a20f10ffa235
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" Height="auto" Width="730"  />
@@ -46,8 +52,13 @@
                                 <RowDefinition Height="*" ></RowDefinition>
                             </Grid.RowDefinitions>
 
+<<<<<<< HEAD
                             <Image Grid.Row="0" Source="{Binding Image , UpdateSourceTrigger=PropertyChanged}" Margin="5"></Image>
                             <TextBlock FontFamily="Bold" FontSize="15"  Grid.Row="1" Text="{Binding Name , UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+=======
+                            <Image Grid.Row="0" Source="{Binding Image}" Margin="5"></Image>
+                            <TextBlock FontFamily="Bold" FontSize="15" Foreground="Red" Grid.Row="1" Text="{Binding Name , UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+>>>>>>> a28e7851a93052bbfdc43dcc8915a20f10ffa235
                             <TextBlock FontFamily="Bold" FontSize="15" Foreground="#457B9D" Grid.Row="2">
                                 <TextBlock.Text>
                                     <MultiBinding StringFormat=" {0} AZN">

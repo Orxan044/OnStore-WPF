@@ -2,13 +2,20 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
+
 namespace PraductShop_WPF;
 
 public partial class MainWindow : Window
 {
     public ObservableCollection<Product> Praducts { get; set; }
+<<<<<<< HEAD
     public ObservableCollection<Product> PraductsSearch { get; set; } = new();
     public ObservableCollection<Basket> BasketShop { get; set; } = new();
+=======
+    Shoping shoping = new();
+>>>>>>> a28e7851a93052bbfdc43dcc8915a20f10ffa235
 
 
     public MainWindow()
@@ -25,11 +32,38 @@ public partial class MainWindow : Window
 
     private void AddPraduct_Click(object sender, RoutedEventArgs e)
     {
+<<<<<<< HEAD
         AddPraduct addPraduct = new AddPraduct();
         Hide();
         addPraduct.ShowDialog();
         Show();
 
+=======
+        if (sender is Button button)
+        {
+            // Parent element of the button is ListBoxItem
+            ListBoxItem item = FindAncestor<ListBoxItem>(button);
+            if (item != null)
+            {
+                // Get the DataContext of the ListBoxItem
+                var product = item.DataContext as Product;
+                if (product != null)
+                {
+                    shoping.Basket.Add(product);
+                }
+            }
+        }
+    }
+
+
+    public static T FindAncestor<T>(DependencyObject dependencyObject) where T : DependencyObject
+    {
+        DependencyObject parent = VisualTreeHelper.GetParent(dependencyObject);
+        if (parent == null) return null;
+
+        T parentT = parent as T;
+        return parentT ?? FindAncestor<T>(parent);
+>>>>>>> a28e7851a93052bbfdc43dcc8915a20f10ffa235
     }
 
     private void listboxShop_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -42,7 +76,10 @@ public partial class MainWindow : Window
     }
     private void Basket_Click(object sender, RoutedEventArgs e)
     {
+<<<<<<< HEAD
         Shoping shoping = new(BasketShop);
+=======
+>>>>>>> a28e7851a93052bbfdc43dcc8915a20f10ffa235
         Hide();
         shoping.ShowDialog();
         Show();
@@ -97,6 +134,7 @@ public partial class MainWindow : Window
         
     }
 
+<<<<<<< HEAD
     //private void AddShoping_click(object sender, RoutedEventArgs e)
     //{
     //    Button button = sender as Button;
@@ -119,4 +157,13 @@ public partial class MainWindow : Window
     //    //listboxShop.Items.Clear();
     //    //if(txtBoxSearch.Text = )  
     //}
+=======
+    private void PraductChange_MouseDoubleClick(object sender , MouseButtonEventArgs e)
+    {
+        EditPraduct editPraduct = new();
+        Hide();
+        editPraduct.ShowDialog();
+        Show();
+    }
+>>>>>>> a28e7851a93052bbfdc43dcc8915a20f10ffa235
 }

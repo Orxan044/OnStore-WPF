@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using Microsoft.Win32;
 using PraductShop_WPF.Models;
 using System;
@@ -50,4 +51,32 @@ public partial class EditPraduct : Window
         }
         else MessageBox.Show("Please Enter Correct Information !!!");
     }
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace PraductShop_WPF
+{
+    /// <summary>
+    /// Interaction logic for EditPraduct.xaml
+    /// </summary>
+    public partial class EditPraduct : Window
+    {
+        public EditPraduct()
+        {
+            InitializeComponent();
+        }
+    }
+>>>>>>> a28e7851a93052bbfdc43dcc8915a20f10ffa235
 }

@@ -4,12 +4,19 @@ using PraductShop_WPF.Models;
 namespace PraductShop_WPF;
 public partial class Shoping : Window
 {
+<<<<<<< HEAD
     public ObservableCollection<Basket> Basket { get; set; }
 
     public Shoping(ObservableCollection<Basket> Basket)
     {
         InitializeComponent();
         this.Basket = Basket;
+=======
+    public ObservableCollection<Product> Basket { get; set; } = new();
+    public Shoping()
+    {
+        InitializeComponent();
+>>>>>>> a28e7851a93052bbfdc43dcc8915a20f10ffa235
         DataContext = this;
     }
 

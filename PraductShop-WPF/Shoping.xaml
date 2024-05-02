@@ -14,6 +14,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
+<<<<<<< HEAD
         <Button Grid.Row="0" Content="My Shopping" Height="60" FontSize="25" Visibility="Visible"/>
 
         <ListView x:Name="listShoping" Grid.Row="1" ItemsSource="{Binding Basket}">
@@ -39,6 +40,94 @@
         <Button Grid.Row="2" Height="40" HorizontalAlignment="Left" Width="200" Click="BuyProducts_Clik">Buy Praduct's</Button>
         <Button Grid.Row="2" Height="40" HorizontalAlignment="Right" Width="200" Click="ClearProducts_Click">Clear Praduct's</Button>
 
+=======
+        <ListBox ItemsSource="{Binding Basket}" Grid.Row="1" Background="#F1FAEE">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" Height="auto" Width="730"  />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border 
+                                Background="#F1FAEE" 
+                                CornerRadius="10" 
+                                Width="400" 
+                                Margin="10" 
+                                Height="70" 
+                                BorderBrush="#457B9D" 
+                                BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Border 
+                                            CornerRadius="20" 
+                                            BorderThickness="1" 
+                                            BorderBrush="#1D3557"
+                                            Margin="5">
+                                    <Image 
+                                            Source="{Binding Image}" 
+                                            Stretch="Uniform" 
+                                            Margin="5"/>
+                                </Border>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <TextBlock 
+                                            Text="{Binding Name}" 
+                                            FontSize="18" 
+                                            FontWeight="DemiBold" 
+                                            Foreground="#1D3557" 
+                                            VerticalAlignment="Center"
+                                            Margin="10"
+                                            />
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <TextBlock Foreground="Yellow"
+                                                   FontSize="14"
+                                                   FontWeight="DemiBold"
+                                                   VerticalAlignment="Center">
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat=" {0} Say">
+                                            <Binding Path="Price"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="3">
+                                <TextBlock Foreground="#E63946"
+                                                   FontSize="14"
+                                                   FontWeight="DemiBold"
+                                                   VerticalAlignment="Center">
+                                    <TextBlock.Text>
+                                        <MultiBinding StringFormat=" {0} AZN">
+                                            <Binding Path="Price"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <TextBlock FontFamily="Bold" FontSize="15" Foreground="#457B9D" Grid.Row="1" Margin="0,323,0,36" Grid.RowSpan="2">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="Total: {0} AZN">
+                    <Binding Path="Total"/>
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        <Button   Grid.Row="2" FontSize="17" Background="Green" Margin="23,31,204,4"  >Buy Praducts</Button>
+        <Button   Grid.Row="2" FontSize="17" Background="Red" Margin="212,31,23,4"  >Clear All</Button>
+        
+>>>>>>> a28e7851a93052bbfdc43dcc8915a20f10ffa235
 
 
     </Grid>
